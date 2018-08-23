@@ -1,13 +1,13 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 language: python
-
 script:
-  - python -m pytest -v
-
+- python -m pytest -v
 after_success:
-  - sh .travis/deploy_dockerhub.sh
-  - test "$TRAVIS_BRANCH" = "master" && sh .travis/deploy_heroku.sh
+- sh .travis/deploy_dockerhub.sh
+- test "$TRAVIS_BRANCH" = "master" && sh .travis/deploy_heroku.sh
+notifications:
+  slack:
+    rooms:
+      secure: ZrwZHjESOanHGyJWNkb//34s/GoZcr6YkhWgMjNDguzcLW0KhMbBdUt1KSulI/3QvRo8EIByem92F0to6EKsNYOUcWSxm6Y+kyWst63NuL5I00WZOBPJNoJ75hRARf/g4DVrcowtK6pGvezufWbzC58Ek35kcsSSA10ASYLqV3Ax7HTbG8GEv1bE5ti8QzqBs4jJR7LK70ZKQqa2MIFVBMEjEaCqeOrvGjYmj7ia+r39oEjvLG5GpT/RbCXXfELFeq1OZ3F2Yvo7sviGYEhQu0k/U49ri1xLhctXu1y8n6HGgXnJzaRnX4aMMgkJFMNyxQDkp6PXZeWczlmRpLHUawCGwShX1q51bSbaE5+h4oh7tLPfUb7x3i8gXeaxkJjrW76RgBOXLI+v8diwOkytyxIAE4jVoNvneEl6+5f7F4LcgkMbWr2+XoS3TSj32igCH3g4z3CrcCAuP1m88ZKyfVAmjfN9kZXK6nu7XOjPthw8M+ofp0Jm5wFGzScMZ8ucFATkxHrB0YQBFBY7H3ekySgBSKM897o2iNU5JjX3LDaJNhfPtMiXpRqU43uBACAeOT0W9j18IS4JEMORSEMuH8pdbZ3k0h/xXhxPMLe4vAuIaduDbY9I/uj7R16sEEYYqj5WKo1zFL+2SrN1lw89/h6OvePTOhwWeqx+JaKBfcw=
